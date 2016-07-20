@@ -1,4 +1,5 @@
 var popup = {
+    data : null,
     multiline: function(fn){
         return fn.toString().split('\n').slice(1,-1).join('\n') + '\n';
     },
@@ -29,6 +30,7 @@ var popup = {
         */}).format(pro);
     },
     gen: function(data){
+        popup.data = data;
         if (data.loaded === false){
             $('#popup').html(data.error);
         }else{
@@ -85,7 +87,6 @@ var popup = {
         });
         chrome.runtime.sendMessage('pangolin-background-load');
         chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-            console.log(message);
             popup.gen(message);
         })
     }
