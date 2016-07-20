@@ -1,7 +1,5 @@
-var popupResponse = null;
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     if(message != 'pangolin-background-load') return;
-    popupResponse = sendResponse;
     var pro = {loaded:false};
     chrome.tabs.getSelected(function(tab){
         var raw = tab.url.split('://')[1].split('.')[1].toLowerCase();
