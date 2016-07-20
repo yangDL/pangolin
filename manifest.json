@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "挠挠爬取",
+    "version": "1.0.0",
+    "description": "挠挠包装系统爬取工具--yangDL",
+    "icons": {
+        "48" : "images/icon.png"
+    },
+    "background": { 
+        "scripts": ["js/jquery-1.11.2.min.js", "js/background.js"] 
+    },
+    "browser_action": {
+        "default_icon": {
+            "48" : "images/icon.png"
+        },
+        "default_title": "挠挠爬取",
+        "default_popup": "popup.html"
+    },
+    "permissions": ["tabs", "http://*/*","https://*/*"],
+    "content_scripts":[{
+        "matches":["http://*/*", "https://*/*"],
+        "js":["js/jquery-1.11.2.min.js", "js/pangolin.js"]
+    }]
+}
